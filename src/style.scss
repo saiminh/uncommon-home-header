@@ -1,0 +1,111 @@
+@use "../node_modules/swiper/swiper.min.css";
+@use "../node_modules/swiper/modules/mousewheel/mousewheel.min.css";
+
+.uncommon-home-header {
+  background-color: var(--wp--preset--color--pigment-purple, #9487e4);
+  overflow: hidden;
+  margin: 0 calc(-1 * var(--wp--preset--spacing--outer));
+  height: 100svh;
+  position: relative;
+  z-index: 101;
+
+  @media screen and (max-width: 599px) {
+    height: auto;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.uncommon-home-header .swiper {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.uncommon-home-header.loaded .swiper {
+  animation: appear 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+  animation-delay: .3s;
+}
+.uncommon-home-header .swiper {
+  height: 100%;
+  width: 120%;
+  position: relative;
+  left: -10%;
+  
+  @media screen and (max-width: 599px) {
+    width: 150%;
+    position: relative;
+    left: -25%;
+  }
+}
+#uncommonLogo {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -75%);
+  width: 66.667%;
+  z-index: 1;
+  pointer-events: none;
+  animation: uncommonlogoIn 1s cubic-bezier(0.645, 0.045, 0.355, 1) both;
+  
+  @media screen and (max-width: 599px) {
+    width: 75%;
+  }
+}
+@keyframes uncommonlogoIn {
+  0% {
+    transform: translate(-50%, -25%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -75%);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .uncommon-home-header__nav {
+    display: none;
+  }
+}
+.uncommon-home-header__nav-item {
+  position: absolute;
+  z-index: 2;
+  color: var(--wp--preset--color--contrast, #000)!important;
+  text-decoration: none;
+  padding: 1em;
+  font-size: var(--wp--preset--font-size--body-xs, 0.75rem);
+
+  // OK this is confusing, but bcs the swiper is centered, we need to offset the nav items by 2
+  &.uncommon-home-header__nav-item--0 {
+    top: 0;
+    left: var(--wp--preset--spacing--outer);
+  }
+  &.uncommon-home-header__nav-item--1 {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  &.uncommon-home-header__nav-item--2 {
+    top: 0;
+    right: var(--wp--preset--spacing--outer);
+  }
+  &.uncommon-home-header__nav-item--3 {
+    bottom: 0;
+    left: var(--wp--preset--spacing--outer);
+  }
+  &.uncommon-home-header__nav-item--4 {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  &.uncommon-home-header__nav-item--5 {
+    bottom: 0;
+    right: var(--wp--preset--spacing--outer);
+  }
+}
