@@ -8,9 +8,10 @@
   height: 100svh;
   position: relative;
   z-index: 101;
-
+  
   @media screen and (max-width: 599px) {
     height: auto;
+    z-index: 99;
   }
 }
 @keyframes appear {
