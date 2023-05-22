@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // loop through images and add loaded class when image is loaded
   images.forEach((image) => {
     image.addEventListener('load', () => {
+      image.setAtribute('loading', 'eager');
       image.classList.add('loaded');
       imagesLoaded++;
       if (imagesLoaded === images.length) {
