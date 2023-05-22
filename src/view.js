@@ -2,17 +2,29 @@ import Swiper, {Mousewheel} from 'swiper';
 
 const loopedSlides = 3;
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   
   const swiperContent = document.querySelector('.uncommon-home-header .swiper-wrapper');
-  swiperContent.innerHTML = swiperContent.innerHTML + swiperContent.innerHTML + swiperContent.innerHTML;
-
   const sliderParent = document.querySelector('.uncommon-home-header'),
         slides = document.querySelectorAll('.uncommon-home-header-slide'),
         navContainer = document.createElement('div');
   
-  sliderParent.classList.add('loaded');
-        
+  let imagesLoaded = 0;
+  // get all images in swiperContent
+  const images = swiperContent.querySelectorAll('img');
+  // loop through images and add loaded class when image is loaded
+  images.forEach((image) => {
+    image.addEventListener('load', () => {
+      image.classList.add('loaded');
+      imagesLoaded++;
+      if (imagesLoaded === images.length) {
+        sliderParent.classList.add('loaded');
+      }
+    })
+  })
+
+  swiperContent.innerHTML = swiperContent.innerHTML + swiperContent.innerHTML + swiperContent.innerHTML;
+
   navContainer.classList.add('uncommon-home-header__nav');
   
   sliderParent.appendChild(navContainer);
