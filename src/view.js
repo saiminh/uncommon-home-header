@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const images = swiperContent.querySelectorAll('img');
   // loop through images and add loaded class when image is loaded
   images.forEach((image) => {
-    image.setAtribute('loading', 'eager');
+    image.setAttribute('loading', 'eager');
     image.addEventListener('load', () => {
       image.classList.add('loaded');
       imagesLoaded++;
