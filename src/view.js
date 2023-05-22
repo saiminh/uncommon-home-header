@@ -5,9 +5,8 @@ const loopedSlides = 3;
 window.addEventListener('DOMContentLoaded', () => {
   
   const swiperContent = document.querySelector('.uncommon-home-header .swiper-wrapper');
-  const sliderParent = document.querySelector('.uncommon-home-header'),
-        slides = document.querySelectorAll('.uncommon-home-header-slide'),
-        navContainer = document.createElement('div');
+  const sliderParent = document.querySelector('.uncommon-home-header');
+  swiperContent.innerHTML = swiperContent.innerHTML + swiperContent.innerHTML + swiperContent.innerHTML;
   
   let imagesLoaded = 0;
   // get all images in swiperContent
@@ -24,7 +23,8 @@ window.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  swiperContent.innerHTML = swiperContent.innerHTML + swiperContent.innerHTML + swiperContent.innerHTML;
+  const slides = document.querySelectorAll('.uncommon-home-header-slide'),
+        navContainer = document.createElement('div');
 
   navContainer.classList.add('uncommon-home-header__nav');
   
