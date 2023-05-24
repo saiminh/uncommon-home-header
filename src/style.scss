@@ -79,8 +79,14 @@
   z-index: 2;
   color: var(--wp--preset--color--contrast, #000)!important;
   text-decoration: none;
-  padding: 1em;
+  padding: 1em .75em .8em .75em;
+  margin: .5em;
+  border-radius: 2em;
   font-size: var(--wp--preset--font-size--body-xs, 0.75rem);
+
+  &:hover {
+    background-color: rgba(38, 11, 59, 0.1);
+  }
 
   // OK this is confusing, but bcs the swiper is centered, we need to offset the nav items by 2
   &.uncommon-home-header__nav-item--0 {
